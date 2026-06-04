@@ -1,0 +1,5 @@
+name = "festa-venda-nova-2026"
+pages_build_output_dir = "public"
+
+[build]
+command = "hugo --minify"

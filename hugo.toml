@@ -1,0 +1,4 @@
+baseURL = "/"
+languageCode = "pt-pt"
+title = "Festas em Honra ao São José – Venda Nova Moínhos 2026"
+disableKinds = ["taxonomy", "term"]
