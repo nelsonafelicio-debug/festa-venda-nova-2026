@@ -3,3 +3,6 @@ pages_build_output_dir = "public"
 
 [build]
 command = "hugo --minify"
+
+[vars]
+HUGO_VERSION = "0.145.0"
