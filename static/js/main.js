@@ -9,8 +9,18 @@
     const diff = target - now;
 
     if (diff <= 0) {
-      document.getElementById('countdown').innerHTML =
-        '<span style="font-family:\'Bebas Neue\',sans-serif;font-size:1.6rem;color:var(--gold-bright);letter-spacing:0.1em">A ACONTECER AGORA!</span>';
+      const elapsed = Math.abs(diff);
+      const ed = Math.floor(elapsed / 86400000);
+      const eh = Math.floor((elapsed % 86400000) / 3600000);
+      const em = Math.floor((elapsed % 3600000)  / 60000);
+      const es = Math.floor((elapsed % 60000)    / 1000);
+      const cd = document.getElementById('countdown');
+      cd.innerHTML =
+        '<div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem">' +
+        '<span style="font-family:\'Bebas Neue\',sans-serif;font-size:clamp(1.2rem,3vw,2rem);color:var(--gold-bright);letter-spacing:0.12em">&#127881; A FESTA JÁ ARRANCOU!</span>' +
+        '<span style="font-family:\'Space Mono\',monospace;font-size:clamp(0.7rem,1.5vw,0.9rem);color:var(--gray);letter-spacing:0.2em">' +
+        pad(ed) + 'd ' + pad(eh) + 'h ' + pad(em) + 'm ' + pad(es) + 's de festa</span>' +
+        '</div>';
       return;
     }
 

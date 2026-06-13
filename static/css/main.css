@@ -517,7 +517,11 @@ body {
 
   .location { text-align: center; }
   .date-pills { justify-content: center; }
-  .countdown  { justify-content: center; flex-wrap: wrap; }
+  .countdown  { justify-content: center; flex-wrap: nowrap; gap: 0.15rem; }
+  .count-unit { min-width: 0; padding: 0.4rem 0.5rem; flex: 1; }
+  .count-num  { font-size: clamp(1.4rem, 8vw, 2.2rem); }
+  .count-label { font-size: 0.45rem; letter-spacing: 0.15em; }
+  .count-sep  { font-size: 1.8rem; margin-bottom: 0.7rem; }
 
   .pre-title { text-align: center; }
 
