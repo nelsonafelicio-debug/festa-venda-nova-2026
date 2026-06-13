@@ -66,19 +66,40 @@ body {
   position: relative;
 }
 
-.saint-img {
-  width: 100%;
-  max-width: 440px;
-  filter:
-    drop-shadow(0 0 40px rgba(200, 150, 10, 0.5))
-    drop-shadow(0 0 100px rgba(200, 150, 10, 0.25));
-  animation: saint-float 7s ease-in-out infinite;
+.poster-card {
+  position: relative;
+  animation: poster-float 8s ease-in-out infinite;
   transform-origin: center bottom;
+  cursor: default;
 }
 
-@keyframes saint-float {
-  0%, 100% { transform: translateY(0) rotate(-0.5deg); }
-  50%       { transform: translateY(-18px) rotate(0.5deg); }
+.poster-card:hover {
+  animation-play-state: paused;
+  transform: rotate(0deg) scale(1.02) translateY(0) !important;
+}
+
+.poster-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--gold);
+  opacity: 0.5;
+  transform: rotate(-3deg) translate(10px, 10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.poster-hero-img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  border: 6px solid var(--cream);
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.75));
+}
+
+@keyframes poster-float {
+  0%, 100% { transform: rotate(2.5deg) translateY(0); }
+  50%       { transform: rotate(1.5deg) translateY(-16px); }
 }
 
 /* Hero text */
@@ -169,14 +190,14 @@ body {
   flex-direction: column;
   align-items: center;
   border: 1px solid #333;
-  padding: 0.4rem 0.7rem;
-  min-width: 3.5rem;
+  padding: 0.7rem 1.2rem;
+  min-width: 5.5rem;
   background: rgba(200, 150, 10, 0.05);
 }
 
 .count-num {
   font-family: 'Space Mono', monospace;
-  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--gold-bright);
   letter-spacing: 0.05em;
@@ -185,18 +206,18 @@ body {
 
 .count-label {
   font-family: 'Space Mono', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.25em;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
   color: var(--gray);
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .count-sep {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
+  font-size: 3rem;
   color: var(--gold);
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
 }
 
 /* Scroll hint */
@@ -228,6 +249,42 @@ body {
 @keyframes bounce-down {
   0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
   50%       { opacity: 1;   transform: translateX(-50%) translateY(6px); }
+}
+
+/* ════════════════════════════════════════════
+   TICKER
+════════════════════════════════════════════ */
+.bairro-ticker {
+  background: var(--gold);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.8rem 0;
+  border-top: 2px solid var(--gold-bright);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  animation: ticker-scroll 32s linear infinite;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  color: var(--black);
+  will-change: transform;
+}
+
+.ticker-track span { padding: 0 0.4rem; }
+
+.t-sep {
+  opacity: 0.45;
+  margin: 0 0.3rem;
+  flex-shrink: 0;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ════════════════════════════════════════════
@@ -477,7 +534,12 @@ body {
   }
 
   .saint-col { justify-content: center; }
-  .saint-img { max-width: 260px; }
+  .poster-hero-img { max-width: 240px; }
+  .poster-card { transform: rotate(1.5deg) translateY(0); }
+  @keyframes poster-float {
+    0%, 100% { transform: rotate(1.5deg) translateY(0); }
+    50%       { transform: rotate(0.5deg) translateY(-10px); }
+  }
 
   .location { text-align: center; }
   .date-pills { justify-content: center; }
