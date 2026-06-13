@@ -66,40 +66,19 @@ body {
   position: relative;
 }
 
-.poster-card {
-  position: relative;
-  animation: poster-float 8s ease-in-out infinite;
-  transform-origin: center bottom;
-  cursor: default;
-}
-
-.poster-card:hover {
-  animation-play-state: paused;
-  transform: rotate(0deg) scale(1.02) translateY(0) !important;
-}
-
-.poster-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 3px solid var(--gold);
-  opacity: 0.5;
-  transform: rotate(-3deg) translate(10px, 10px);
-  pointer-events: none;
-  z-index: -1;
-}
-
-.poster-hero-img {
-  display: block;
+.saint-img {
   width: 100%;
-  max-width: 400px;
-  border: 6px solid var(--cream);
-  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.75));
+  max-width: 440px;
+  filter:
+    drop-shadow(0 0 40px rgba(200, 150, 10, 0.5))
+    drop-shadow(0 0 100px rgba(200, 150, 10, 0.25));
+  animation: saint-float 7s ease-in-out infinite;
+  transform-origin: center bottom;
 }
 
-@keyframes poster-float {
-  0%, 100% { transform: rotate(2.5deg) translateY(0); }
-  50%       { transform: rotate(1.5deg) translateY(-16px); }
+@keyframes saint-float {
+  0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+  50%       { transform: translateY(-18px) rotate(0.5deg); }
 }
 
 /* Hero text */
@@ -534,12 +513,7 @@ body {
   }
 
   .saint-col { justify-content: center; }
-  .poster-hero-img { max-width: 240px; }
-  .poster-card { transform: rotate(1.5deg) translateY(0); }
-  @keyframes poster-float {
-    0%, 100% { transform: rotate(1.5deg) translateY(0); }
-    50%       { transform: rotate(0.5deg) translateY(-10px); }
-  }
+  .saint-img { max-width: 260px; }
 
   .location { text-align: center; }
   .date-pills { justify-content: center; }
